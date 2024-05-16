@@ -25,22 +25,58 @@ Validate(){
     fi     
 }
 
+# yum install nginx -y &>>$LOGFILE
+# Validate $? "Installing Nginx"
+# systemctl enable nginx &>>$LOGFILE
+# Validate $? "Enableling nginx"
+# systemctl start nginx &>>$LOGFILE
+# Validate $? "Starting nginx"
+# rm -rf /usr/share/nginx/html/* &>>$LOGFILE
+# Validate $? "Removing Content"
+# curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>>$LOGFILE
+# Validate $? "Downloading web"
+# cd /usr/share/nginx/html &>>$LOGFILE
+# Validate $? "Copying html file"
+# unzip /tmp/web.zip &>>$LOGFILE
+# Validate $? "unziping web file"
+# cp /home/centos/Roboshop/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>$LOGFILE
+# Validate $? "Copying robosho.conf file"
+# ##systemctl restart nginx  &>>$LOGFILE
+# systemctl restart nginx &>>$LOGFILE
+# Validate $? "Restarting nginx"
+
 yum install nginx -y &>>$LOGFILE
+
 Validate $? "Installing Nginx"
+
 systemctl enable nginx &>>$LOGFILE
-Validate $? "Enableling nginx"
+
+Validate $? "Enabling Nginx"
+
 systemctl start nginx &>>$LOGFILE
-Validate $? "Starting nginx"
+
+Validate $? "Starting Nginx"
+
 rm -rf /usr/share/nginx/html/* &>>$LOGFILE
-Validate $? "Removing Content"
+
+Validate $? "Removing default index html files"
+
 curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>>$LOGFILE
-Validate $? "Downloading web"
+
+Validate $? "Downloading web artifact"
+
 cd /usr/share/nginx/html &>>$LOGFILE
-Validate $? "Copying html file"
+
+Validate $? "Moving to default HTML directory"
+
 unzip /tmp/web.zip &>>$LOGFILE
-Validate $? "unziping web file"
-cp /home/centos/Roboshop/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>$LOGFILE
-Validate $? "Copying robosho.conf file"
-##systemctl restart nginx  &>>$LOGFILE
+
+Validate $? "unzipping web artifact"
+
+cp /home/centos/Roboshop/roboshop.conf /etc/nginx/default.d/roboshop.conf  &>>$LOGFILE
+
+Validate $? "copying roboshop config"
+
 systemctl restart nginx  &>>$LOGFILE
-Validate $? "Restarting nginx"
+
+Validate $? "Restarting Nginx"

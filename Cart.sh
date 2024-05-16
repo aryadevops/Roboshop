@@ -43,7 +43,7 @@ Validate $? "Unzipping"
 npm install &>>$LOGFILE
 Validate $? "installing npm"
 cp /home/centos/Roboshop/cart.service /etc/systemd/system/cart.service &>>$LOGFILE
-VALIDATE $? "copying cart.service"
+Validate $? "copying cart.service"
 systemctl daemon-reload &>>$LOGFILE
 Validate $? "reloading Cart"
 
