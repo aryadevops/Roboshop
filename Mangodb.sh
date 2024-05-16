@@ -38,7 +38,8 @@ Validate $? "enabling mongoDB"
 systemctl start mongod &>>$LOGFILE
 Validate $? "Starting mongoDB"
 
-sed -i 's/127.0.0.1/0.0.0.0' /etc/mongod.conf &>>$LOGFILE
+sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>$LOGFILE
+##sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>> $LOGFILE
 Validate $? "Accepting public entry"
 
 systemctl restart mongod &>>$LOGFILE
