@@ -18,10 +18,11 @@ fi
 Validate(){
     if [ $1 -ne 0 ]
      then
-         echo -e " $2 ......$G Success $N"
+         echo -e " $2 ......$R Failure $N"
+         Exit 1
         else
-         echo -e " $2 ...... $R Failure $N"
-    fi      
+         echo -e " $2 ...... $G Success $N"
+    fi     
 }
 
 yum install nginx -y &>>$LOGFILE
