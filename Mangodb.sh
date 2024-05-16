@@ -28,14 +28,19 @@ Validate(){
 
 cp /home/centos/Roboshop/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
 Validate $? "Mongo-repo-copied"
+
 yum install mongodb-org -y &>>$LOGFILE
 Validate $? "Mongodb"
+
 systemctl enable mongod &>>$LOGFILE
 Validate $? "enabling mongoDB"
-systemctl Start mongod &>>$LOGFILE
+
+systemctl start mongod &>>$LOGFILE
 Validate $? "Starting mongoDB"
+
 sed -i 's/127.0.0.1/0.0.0.0' /etc/mongod.conf &>>$LOGFILE
 Validate $? "Accepting public entry"
+
 systemctl restart mongod &>>$LOGFILE
 Validate $? "Restart mongoDB"
 
