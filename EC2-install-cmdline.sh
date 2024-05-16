@@ -12,7 +12,7 @@ HOSTED_ZONE_ID="Z0785096FGYSOI4KHBHI"
 
 
 
-for i in {$Names}
+for i in $Names
 do
   ##if [[ $i == "mongodb" || $i == "mysql" ]]
   ##then
