@@ -33,7 +33,7 @@ yum module enable redis:remi-6.2 -y &>>$LOGFILE
 Validate $? "Enableling Redis"
 yum install redis -y &>>$LOGFILE
 Validate $? "Installing Redis"
-sem -i 's/127.0.0.1/0.0.0.0' /etc/redis.conf & /etc/redis/redis.conf &>>$LOGFILE
+sem -i 's/127.0.0.1/0.0.0.0/' /etc/redis.conf & /etc/redis/redis.conf &>>$LOGFILE
 Validate $? "Replacing with public ip"
 systemctl enable redis &>>$LOGFILE
 Validate $? "Enableling redis"
