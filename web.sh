@@ -41,5 +41,6 @@ unzip /tmp/web.zip &>>$LOGFILE
 Validate $? "unziping web file"
 cp /home/centos/Roboshop/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>$LOGFILE
 Validate $? "Copying robosho.conf file"
+##systemctl restart nginx  &>>$LOGFILE
 systemctl restart nginx  &>>$LOGFILE
 Validate $? "Restarting nginx"
