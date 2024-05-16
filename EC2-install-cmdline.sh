@@ -2,7 +2,7 @@
 
 ##Names=("web" "mongodb" "user" "cart" "catalogue" "reddis" "rabbitmq" "mysql" "shipping" "paymet" "dispatch")
 
-names=$@
+Names=$@
 INSTANCE_TYPE=" "
 IMAGE_ID="ami-0f3c7d07486cad139"
 SECURITY_GROUP_ID="sg-0b06e05c2dbc1d866"
