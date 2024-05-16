@@ -42,11 +42,13 @@ unzip /tmp/cart.zip &>>$LOGFILE
 Validate $? "Unzipping"
 npm install &>>$LOGFILE
 Validate $? "installing npm"
+cp /home/centos/Roboshop/cart.service /etc/systemd/system/cart.service &>>$LOGFILE
+VALIDATE $? "copying cart.service"
 systemctl daemon-reload &>>$LOGFILE
 Validate $? "reloading Cart"
-##systemctl enable cart &>>LOGFILE
+
 systemctl enable cart &>>$LOGFILE
 Validate $? "Enableling cart"
-##systemctl start cart &>>LOGFILE
+
 systemctl start cart &>>$LOGFILE
 Validate $? "Starting cart"
