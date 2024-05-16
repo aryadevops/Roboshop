@@ -26,25 +26,27 @@ Validate(){
     fi      
 }
 
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>LOGFILE
+curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>$LOGFILE
 Validate $? "Downloading rpm"
-yum install nodejs -y &>>LOGFILE
+yum install nodejs -y &>>$LOGFILE
 Validate $? "Installing nodejs"
-useradd roboshop &>>LOGFILE
+useradd roboshop &>>$LOGFILE
 Validate $? "Adding user"
-mkdir /app &>>LOGFILE
+mkdir /app &>>$LOGFILE
 Validate $? "make APP Directory"
-curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip &>>LOGFILE
+curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip &>>$LOGFILE
 Validate $? "Downloading Cart"
-cd /app &>>LOGFILE
+cd /app &>>$LOGFILE
 Validate $? " redirect app floder"
-unzip /tmp/cart.zip &>>LOGFILE
+unzip /tmp/cart.zip &>>$LOGFILE
 Validate $? "Unzipping"
-npm install &>>LOGFILE
+npm install &>>$LOGFILE
 Validate $? "installing npm"
-systemctl daemon-reload &>>LOGFILE
+systemctl daemon-reload &>>$LOGFILE
 Validate $? "reloading Cart"
-systemctl enable cart &>>LOGFILE
+##systemctl enable cart &>>LOGFILE
+systemctl enable cart &>>$LOGFILE
 Validate $? "Enableling cart"
-systemctl start cart &>>LOGFILE
+##systemctl start cart &>>LOGFILE
+systemctl start cart &>>$LOGFILE
 Validate $? "Starting cart"
